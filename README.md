@@ -1,5 +1,5 @@
 <h1 align="center">
-  mx-takeover
+  Easy XSSHunter Express
   <br>
 </h1>
 
