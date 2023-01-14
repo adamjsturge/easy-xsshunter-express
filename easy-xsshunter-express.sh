@@ -38,7 +38,7 @@ case $yn in
         echo "Leave anything blank you don't know or don't want to change"
         ;;
     [nN] )
-        echo "Setup skipped."
+        echo "Setup skipped. Please refrence the README.md in xsshunter-express on how to setup"
         exit
         ;;
     * ) echo invalid response;;
@@ -124,3 +124,6 @@ if [ -n "$SLACK_FORK" ]; then
         sed -i "s/SLACK_NOTIFICATIONS_ENABLED=true/SLACK_NOTIFICATIONS_ENABLED=false/" docker-compose.yml
     fi
 fi
+
+echo "You should be able to start xsshunter-express with (docker compose up -d postgresdb && docker compose up xsshunterexpress)"
+echo "Please reference the README.md of xsshunter-express if you need further setup"
