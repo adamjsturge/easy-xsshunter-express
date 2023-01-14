@@ -35,15 +35,14 @@ cd xsshunter-express/
 read -p "Do you want to go through basic setup? (y/n) " yn
 case $yn in 
     [yY] )
-        break;;
+        echo "Leave anything blank you don't know or don't want to change"
+        ;;
     [nN] )
         echo "Setup skipped."
         exit
         ;;
     * ) echo invalid response;;
 esac
-
-echo "Leave anything blank you don't know or don't want to change"
 
 read -p "What is your hostname? " HOSTNAME
 if [ -n "$HOSTNAME" ]; then
@@ -94,7 +93,6 @@ if [[ "$SMTP_EMAIL_NOTIFICATIONS_ENABLED" =~ [Yy] ]]; then
     if [ -n "$SMTP_RECEIVER_EMAIL" ]; then
         sed -i "s/SMTP_RECEIVER_EMAIL=YourEmail@gmail.com/SMTP_RECEIVER_EMAIL=$SMTP_RECEIVER_EMAIL/" docker-compose.yml
     fi
-
 else
     sed -i "s/SMTP_EMAIL_NOTIFICATIONS_ENABLED=true/SMTP_EMAIL_NOTIFICATIONS_ENABLED=false/" docker-compose.yml
 fi
