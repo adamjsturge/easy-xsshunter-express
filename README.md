@@ -64,3 +64,5 @@ Leave anything blank you don't know or don't want to change
 # More info
 If you get stuck you can DM me on twitter or make a github issue and I'll try to address it. 
 I have only tested this on linux.
+
+My Article: https://adamjsturge.medium.com/easy-xsshunter-express-setup-script-d5a66039f7b6?sk=52394aa4a2d66779ffcaeaf7cab63af9
