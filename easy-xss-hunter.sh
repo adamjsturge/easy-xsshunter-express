@@ -58,7 +58,7 @@ if [ -n "$SSL_CONTACT_EMAIL" ]; then
 fi
 
 read -p "Do you want to enable SMTP email notifications? (y/n) " SMTP_EMAIL_NOTIFICATIONS_ENABLED
-if [ "$SMTP_EMAIL_NOTIFICATIONS_ENABLED" =~ [Yy] ]; then
+if [[ "$SMTP_EMAIL_NOTIFICATIONS_ENABLED" =~ [Yy] ]]; then
     sed -i "s/SMTP_EMAIL_NOTIFICATIONS_ENABLED=false/SMTP_EMAIL_NOTIFICATIONS_ENABLED=true/g" docker-compose.yml
     read -p "What is your SMTP host? " SMTP_HOST
     if [ -n "$SMTP_HOST" ]; then
@@ -71,7 +71,7 @@ if [ "$SMTP_EMAIL_NOTIFICATIONS_ENABLED" =~ [Yy] ]; then
     fi
 
     read -p "Do you want to enable SMTP use TLS? (y/n) " SMTP_USE_TLS
-    if [ "$SMTP_USE_TLS" =~ [Yy] ]; then
+    if [[ "$SMTP_USE_TLS" =~ [Yy] ]]; then
         sed -i "s/SMTP_USE_TLS=false/SMTP_USE_TLS=true/g" docker-compose.yml
     else
         sed -i "s/SMTP_USE_TLS=true/SMTP_USE_TLS=false/g" docker-compose.yml
@@ -103,7 +103,7 @@ fi
 
 if [ -n "SLACK_FORK "]; then
     read -p "Do you want to enable Slack notifications? (y/n) " SLACK_NOTIFICATIONS_ENABLED
-    if [ "$SLACK_NOTIFICATIONS_ENABLED" =~ [Yy] ]; then
+    if [[ "$SLACK_NOTIFICATIONS_ENABLED" =~ [Yy] ]]; then
         sed -i "s/SLACK_NOTIFICATIONS_ENABLED=false/SLACK_NOTIFICATIONS_ENABLED=true/g" docker-compose.yml
         read -p "What is your Slack webhook? " SLACK_WEBHOOK
         if [ -n "$SLACK_WEBHOOK" ]; then
