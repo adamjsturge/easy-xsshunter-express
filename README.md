@@ -57,6 +57,10 @@ Do you want to go through basic setup? (y/n) y
 Leave anything blank you don't know or don't want to change
 ```
 
+# Repos referenced in this script
+<a href="https://github.com/mandatoryprogrammer/xsshunter-express">Official Repo</a>
+<a href="https://github.com/adamjsturge/xsshunter-express">Slack Notification Fork</a>
+
 # More info
 If you get stuck you can DM me on twitter or make a github issue and I'll try to address it. 
 I have only tested this on linux.
