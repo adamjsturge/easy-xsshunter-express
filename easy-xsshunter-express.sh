@@ -21,8 +21,8 @@ do
             git clone https://github.com/mandatoryprogrammer/xsshunter-express.git
             break
             ;;
-        "Slack Notification Fork (https://github.com/adamjsturge/xsshunter-express)")
-        SLACK_FORK=true
+        "Discord/Slack Notification Fork (https://github.com/adamjsturge/xsshunter-express)")
+        ADAM_FORK=true
             git clone https://github.com/adamjsturge/xsshunter-express.git
             break
             ;;
@@ -97,11 +97,11 @@ else
     sed -i "s/SMTP_EMAIL_NOTIFICATIONS_ENABLED=true/SMTP_EMAIL_NOTIFICATIONS_ENABLED=false/" docker-compose.yml
 fi
 
-if [ -n "$SLACK_FORK" ]; then
+if [ -n "$ADAM_FORK" ]; then
     read -p "Do you want to enable Slack notifications? (y/n) " SLACK_NOTIFICATIONS_ENABLED
     if [[ "$SLACK_NOTIFICATIONS_ENABLED" =~ [Yy] ]]; then
         sed -i "s/SLACK_NOTIFICATIONS_ENABLED=false/SLACK_NOTIFICATIONS_ENABLED=true/" docker-compose.yml
-        read -p "What is your Slack webhook? " SLACK_WEBHOOK
+        read -p "What is your Slack webhook (Include https://)? " SLACK_WEBHOOK
         if [ -n "$SLACK_WEBHOOK" ]; then
             sed -i "s|SLACK_WEBHOOK=hooks.slack.com/services/|SLACK_WEBHOOK=$SLACK_WEBHOOK/" docker-compose.yml
         fi
@@ -122,6 +122,16 @@ if [ -n "$SLACK_FORK" ]; then
         fi
     else
         sed -i "s/SLACK_NOTIFICATIONS_ENABLED=true/SLACK_NOTIFICATIONS_ENABLED=false/" docker-compose.yml
+    fi
+    read -p "Do you want to enable Discord notifications? (y/n) " DISCORD_NOTIFICATIONS_ENABLED
+    if [[ "$DISCORD_NOTIFICATIONS_ENABLED" =~ [Yy] ]]; then
+        sed -i "s/DISCORD_NOTIFICATIONS_ENABLED=false/DISCORD_NOTIFICATIONS_ENABLED=true/" docker-compose.yml
+        read -p "What is your Discord webhook (Include https://)? " DISCORD_WEBHOOK
+        if [ -n "$DISCORD_WEBHOOK" ]; then
+            sed -i "s|DISCORD_WEBHOOK=discord.com/api/webhooks/|DISCORD_WEBHOOK=$DISCORD_WEBHOOK/" docker-compose.yml
+        fi
+    else
+        sed -i "s/DISCORD_NOTIFICATIONS_ENABLED=true/DISCORD_NOTIFICATIONS_ENABLED=false/" docker-compose.yml
     fi
 fi
 
