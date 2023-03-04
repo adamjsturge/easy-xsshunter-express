@@ -49,6 +49,11 @@ if [ -n "$HOSTNAME" ]; then
     sed -i "s/HOSTNAME=your.host.name/HOSTNAME=$HOSTNAME/" docker-compose.yml
 fi
 
+read -p "Do you want to enable SSL through Greenlock (default yes)? " SSL_ENABLED
+if [[ "$SSL_ENABLED" =~ [Nn] ]]; then
+    sed -i "s/GREENLOCK_SSL_ENABLED=true/GREENLOCK_SSL_ENABLED=false/" docker-compose.yml
+fi
+
 read -p "What is your SSL contact email? " SSL_CONTACT_EMAIL
 if [ -n "$SSL_CONTACT_EMAIL" ]; then
     sed -i "s/SSL_CONTACT_EMAIL=YourEmail@gmail.com/SSL_CONTACT_EMAIL=$SSL_CONTACT_EMAIL/" docker-compose.yml
