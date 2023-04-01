@@ -12,7 +12,7 @@ while true; do
     esac
 done
 
-options=("Official Repo (https://github.com/mandatoryprogrammer/xsshunter-express)" "Slack Notification Fork (https://github.com/adamjsturge/xsshunter-express)")
+options=("Official Repo (https://github.com/mandatoryprogrammer/xsshunter-express)" "Discord/Slack Notification Fork (https://github.com/adamjsturge/xsshunter-express)")
 PS3='Which Github option would you like to choose? '
 select opt in "${options[@]}"
 do
