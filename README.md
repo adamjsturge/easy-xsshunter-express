@@ -48,6 +48,7 @@ After docker you can pick between 2 github repos of xsshunter-express. The offic
 ```console
 1) Official Repo (https://github.com/mandatoryprogrammer/xsshunter-express)
 2) Slack Notification Fork (https://github.com/adamjsturge/xsshunter-express)
+3) XSSHunter-Go More Notifications and Extended Feature (https://github.com/adamjsturge/xsshunter-go)
 Which Github option would you like to choose?
 ```
 
@@ -59,6 +60,7 @@ Leave anything blank you don't know or don't want to change
 ```
 
 # Repos referenced in this script
+<a href="https://github.com/adamjsturge/xsshunter-go">XSSHunter-Go (More features and notifications services)</a>
 <a href="https://github.com/mandatoryprogrammer/xsshunter-express">Official Repo</a>
 <a href="https://github.com/adamjsturge/xsshunter-express">Slack Notification Fork</a>
 
